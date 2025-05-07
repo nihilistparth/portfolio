@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Scene3D } from './3D/Scene3D';
 import { ErrorBoundary } from './ErrorBoundary';
 
 const Hero = () => {
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
+    { icon: FaGithub, href: 'https://github.com/nihilistparth', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/parth-tusham-40272b1a1/', label: 'LinkedIn' },
   ];
 
   return (
@@ -20,7 +19,7 @@ const Hero = () => {
           className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0"
         >
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Hi, I'm [Your Name]
+            Hi, I'm Parth Tusham
           </h1>
           <p className="text-xl lg:text-2xl mb-8 text-gray-600 dark:text-gray-300">
             Full Stack Developer & UI/UX Enthusiast
@@ -40,6 +39,22 @@ const Hero = () => {
             >
               Contact Me
             </motion.button>
+          </div>
+          <div className="flex gap-4 mt-8 justify-center lg:justify-start">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <link.icon className="w-6 h-6" />
+                <span className="sr-only">{link.label}</span>
+              </motion.a>
+            ))}
           </div>
         </motion.div>
 
