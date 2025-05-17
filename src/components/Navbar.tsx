@@ -34,7 +34,7 @@ const Navbar = () => {
         scrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[100vw] px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex justify-between items-center h-16">
           <motion.a
             href="#home"
@@ -50,7 +50,7 @@ const Navbar = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
