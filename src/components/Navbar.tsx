@@ -32,33 +32,56 @@ const Navbar = () => {
         scrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        {/* Logo and Navigation Container */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          {/* Logo */}
+      {/* Mobile Navigation */}
+      <div className="md:hidden w-full">
+        <div className="flex items-center justify-between px-2">
           <motion.a
             href="#home"
-            className="text-2xl font-bold gradient-text py-4 md:py-0"
+            className="text-xl font-bold gradient-text"
             whileHover={{ scale: 1.05 }}
           >
             Portfolio
           </motion.a>
+        </div>
+        <div className="w-full overflow-x-auto bg-gray-900/95 backdrop-blur-sm">
+          <div className="flex space-x-1 px-2 py-1">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-gray-300 hover:text-white transition-colors whitespace-nowrap px-2 py-1 rounded-full bg-gray-800/50 text-xs font-medium"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </div>
 
-          {/* Navigation Items */}
-          <div className="w-full md:w-auto overflow-x-auto md:overflow-visible">
-            <div className="flex space-x-4 py-2 md:py-0 min-w-max">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-300 hover:text-white transition-colors whitespace-nowrap px-3 py-2 rounded-md bg-gray-800/50 md:bg-transparent flex-shrink-0"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-            </div>
+      {/* Desktop Navigation */}
+      <div className="hidden md:block w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <motion.a
+            href="#home"
+            className="text-2xl font-bold gradient-text"
+            whileHover={{ scale: 1.05 }}
+          >
+            Portfolio
+          </motion.a>
+          <div className="flex space-x-8">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-gray-300 hover:text-white transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.name}
+              </motion.a>
+            ))}
           </div>
         </div>
       </div>
