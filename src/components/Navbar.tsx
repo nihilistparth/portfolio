@@ -30,7 +30,7 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-[100] transition-all duration-300 ${
         scrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
       }`}
     >
@@ -61,7 +61,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 z-[101]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -77,14 +77,14 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden absolute left-0 right-0 top-16"
+              className="md:hidden fixed inset-x-0 top-16 z-[99]"
             >
-              <div className="px-4 py-2 space-y-1 bg-gray-900/95 backdrop-blur-sm shadow-lg">
+              <div className="px-4 py-2 space-y-1 bg-gray-900/95 backdrop-blur-sm shadow-lg min-h-[calc(100vh-4rem)]">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="block px-3 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-md text-center"
+                    className="block px-3 py-4 text-gray-300 hover:text-white hover:bg-gray-800 rounded-md text-center text-lg"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setIsOpen(false)}
