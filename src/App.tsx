@@ -103,6 +103,19 @@ function App() {
         { category: "Competitive Programming", skills: ["CodeForces (1634)", "Codechef (2015)"] }
       ]
     },
+    research: {
+      title: "Research Publications",
+      items: [
+        {
+          title: "Multilingual Hierarchical Entity Classification and Narrative Reasoning using Instruct-Tuned LLMs",
+          authors: "Tusham, P., et al.",
+          journal: "19th International Workshop on Semantic Evaluation (SemEval-2025), co-located with ACL 2025",
+          year: "2025",
+          status: "Accepted",
+          abstract: "This paper presents our work on multilingual hierarchical entity classification and narrative reasoning using instruction-tuned large language models, accepted for presentation at SemEval-2025."
+        }
+      ]
+    },
     contact: {
       title: "Contact Me",
       description: "Let's connect and discuss potential opportunities",
@@ -118,6 +131,7 @@ function App() {
   const experienceRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const researchRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
@@ -394,6 +408,43 @@ function App() {
                         </span>
                       ))}
                     </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Research Section */}
+        <motion.section 
+          ref={researchRef} 
+          className="min-h-[70vh] flex items-center py-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="max-w-4xl mx-auto"
+            >
+              <h2 className="text-4xl font-bold mb-12 bg-gradient-to-r from-slate-300 to-slate-400 bg-clip-text text-transparent text-center">
+                {sections.research.title}
+              </h2>
+              <div className="space-y-8">
+                {sections.research.items.map((paper) => (
+                  <motion.div
+                    key={paper.title}
+                    className="bg-slate-800/30 rounded-xl p-6 backdrop-blur-sm border border-slate-700/20"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <h3 className="text-2xl font-semibold mb-2 text-slate-200">
+                      {paper.title}
+                    </h3>
+                    <p className="text-slate-300 mb-2">{paper.authors}</p>
+                    <p className="text-slate-400 mb-2">{paper.journal} ({paper.year})</p>
+                    <p className="text-slate-400 mb-4">Status: {paper.status}</p>
+                    <p className="text-slate-300 leading-relaxed">{paper.abstract}</p>
                   </motion.div>
                 ))}
               </div>
