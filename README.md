@@ -75,5 +75,3 @@ MIT License - feel free to use this template for your own portfolio!
 ## Contact
 
 - Email: parthtusham@tamu.edu
-- LinkedIn: [Your LinkedIn Profile]
-- GitHub: [Your GitHub Profile] 
